@@ -6,16 +6,15 @@ import "./styles/styles.css";
 
 import configureStore from "./store/configureStore";
 
-import AppRouter from "./routers/AppRouter";
+import App from "./containers/App";
 import registerServiceWorker from "./registerServiceWorker";
 
 const store = configureStore();
 
-const App = (
+ReactDOM.render(
   <Provider store={store}>
-    <AppRouter />
-  </Provider>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
-
-ReactDOM.render(App, document.getElementById("root"));
 registerServiceWorker();
