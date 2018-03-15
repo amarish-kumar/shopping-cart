@@ -1,8 +1,8 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import { testReducer } from "../reducers/testReducer";
 import { createLogger } from "redux-logger";
-
+import { getAllItems } from "../actions/index";
+import reducer from "../reducers";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middleware = [thunk];
@@ -12,11 +12,10 @@ if (process.env.NODE_ENV !== "production") {
 
 export default () => {
   const store = createStore(
-    combineReducers({
-      test: testReducer
-    }),
+    reducer,
     composeEnhancers(applyMiddleware(thunk, ...middleware))
   );
+  store.dispatch(getAllItems());
 
   return store;
 };

@@ -4,8 +4,6 @@ import ItemsContainer from "./ItemsContainer";
 
 const App = () => (
   <div>
-    <h2>Shopping Cart Example</h2>
-    <hr />
     <h2>
       <CartContainer />
     </h2>
