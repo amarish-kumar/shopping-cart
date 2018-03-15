@@ -1,7 +1,7 @@
 [
   {
     "id": 9090,
-    "name": "Item1",
+    "name": "Item 1",
     "price": 200,
     "discount": 10,
     "type": "fiction",
@@ -10,7 +10,7 @@
   },
   {
     "id": 9091,
-    "name": "Item2",
+    "name": "Item 2",
     "price": 250,
     "discount": 15,
     "type": "literature",
@@ -19,7 +19,7 @@
   },
   {
     "id": 9092,
-    "name": "Item3",
+    "name": "Item 3",
     "price": 320,
     "discount": 5,
     "type": "literature",
@@ -28,7 +28,7 @@
   },
   {
     "id": 9093,
-    "name": "Item4",
+    "name": "Item 4",
     "price": 290,
     "discount": 0,
     "type": "thriller",
@@ -37,7 +37,7 @@
   },
   {
     "id": 9094,
-    "name": "Item5",
+    "name": "Item 5",
     "price": 500,
     "discount": 25,
     "type": "thriller",
@@ -46,7 +46,7 @@
   },
   {
     "id": 9095,
-    "name": "Item6",
+    "name": "Item 6",
     "price": 150,
     "discount": 5,
     "type": "literature",
@@ -55,7 +55,7 @@
   },
   {
     "id": 9096,
-    "name": "Item7",
+    "name": "Item 7",
     "price": 700,
     "discount": 22,
     "type": "literature",
@@ -64,7 +64,7 @@
   },
   {
     "id": 9097,
-    "name": "Item8",
+    "name": "Item 8",
     "price": 350,
     "discount": 18,
     "type": "fiction",
