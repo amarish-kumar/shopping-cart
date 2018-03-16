@@ -1,10 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import Cart from "../components/Cart";
+import { getTotal, getCartItems } from "../reducers";
 
-const CartContainer = () => (
-  <div>
-    <h2>Cart</h2>
-  </div>
+const CartContainer = ({ items, total }) => (
+  <Cart items={items} total={total} />
 );
 
-export default CartContainer;
+const mapStateToProps = state => ({
+  items: getCartItems(state),
+  total: getTotal(state)
+});
+
+export default connect(mapStateToProps)(CartContainer);

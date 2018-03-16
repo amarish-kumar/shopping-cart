@@ -20,22 +20,26 @@ const addedIds = (state = initialState.addedIds, action) => {
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      const { itemId } = action;
       return {
         ...state,
-        [itemId]: (state[itemId] || 0) + 1
+        [action.itemId]: (state[action.itemId] || 0) + 1
       };
     case DELETE_FROM_CART:
-      return {
-        ...state,
-        [itemId]: (state[itemId] || 0) - 1
-      };
+      if (state[action.itemId] !== 0) {
+        return {
+          ...state,
+          [action.itemId]: (state[action.itemId] || 0) - 1
+        };
+      } else {
+        return state;
+      }
     default:
       return state;
   }
 };
 
-export const getQuantity = (state, itemId) => state.quantityById[itemId] || 0;
+export const getQuantity = (state, productId) =>
+  state.quantityById[productId] || 0;
 
 export const getAddedIds = state => state.addedIds;
 

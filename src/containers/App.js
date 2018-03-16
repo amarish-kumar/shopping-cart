@@ -6,7 +6,6 @@ const App = () => (
   <div className="shopping-container">
     <div className="item-container">
       <span>
-        {" "}
         <i style={{ fontSize: "24px" }} className="fa">
           &#xf104;
         </i>
