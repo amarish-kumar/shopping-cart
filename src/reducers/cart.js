@@ -1,4 +1,8 @@
-import { ADD_TO_CART, DELETE_FROM_CART } from "../constants/ActionTypes";
+import {
+  ADD_TO_CART,
+  DELETE_FROM_CART,
+  GET_ITEMS
+} from "../constants/ActionTypes";
 
 const initialState = {
   addedIds: [],
@@ -7,6 +11,8 @@ const initialState = {
 
 const addedIds = (state = initialState.addedIds, action) => {
   switch (action.type) {
+    // case GET_ITEMS:
+    //   return action.items.map(item => item.id);
     case ADD_TO_CART:
       if (state.indexOf(action.itemId) !== -1) {
         return state;
@@ -19,13 +25,17 @@ const addedIds = (state = initialState.addedIds, action) => {
 
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
+    case GET_ITEMS:
+      return action.items.map(item => {
+        return (state[item.id] = 1);
+      });
     case ADD_TO_CART:
       return {
         ...state,
         [action.itemId]: (state[action.itemId] || 0) + 1
       };
     case DELETE_FROM_CART:
-      if (state[action.itemId] !== 0) {
+      if (state[action.itemId] > 0) {
         return {
           ...state,
           [action.itemId]: (state[action.itemId] || 0) - 1

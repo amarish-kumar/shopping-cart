@@ -1,12 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getVisibleItems } from "../reducers/items";
-import { addToCart, deleteFromCart, deleteItem } from "../actions";
+import { addToCart, deleteFromCart, deleteItem, getAllItems } from "../actions";
+import { getCartItems } from "../reducers";
 import ProductItem from "../components/ProductItem";
 import ProductsList from "../components/ProductsList";
 import { ToastContainer, toast } from "react-toastify";
 
-const ItemsContainer = ({ items, addToCart, deleteFromCart, deleteItem }) => {
+const ItemsContainer = ({
+  items,
+  addToCart,
+  deleteFromCart,
+  deleteItem,
+  cart,
+  getAllItems
+}) => {
   const options = {
     autoClose: 2000
   };
@@ -17,27 +25,32 @@ const ItemsContainer = ({ items, addToCart, deleteFromCart, deleteItem }) => {
   };
 
   return (
-    <ProductsList title="Items">
-      {items.map(item => (
-        <ProductItem
-          key={item.id}
-          item={item}
-          onAddToCartClicked={() => addToCart(item.id)}
-          onDeleteFromCart={() => deleteFromCart(item.id)}
-          onItemDelete={() => createNotification(item.id, item.name)}
-        />
-      ))}
+    <div>
+      <ProductsList title="Items" getAll={() => getAllItems()}>
+        {items.map(item => (
+          <ProductItem
+            key={item.id}
+            item={item}
+            cart={cart}
+            onAddToCartClicked={() => addToCart(item.id)}
+            onDeleteFromCart={() => deleteFromCart(item.id)}
+            onItemDelete={() => createNotification(item.id, item.name)}
+          />
+        ))}
+      </ProductsList>
       <ToastContainer />
-    </ProductsList>
+    </div>
   );
 };
 
 const mapStateToProps = state => ({
+  cart: getCartItems(state),
   items: getVisibleItems(state.items)
 });
 
 export default connect(mapStateToProps, {
   addToCart,
   deleteFromCart,
-  deleteItem
+  deleteItem,
+  getAllItems
 })(ItemsContainer);

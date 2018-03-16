@@ -5,7 +5,8 @@ const ProductItem = ({
   item,
   onAddToCartClicked,
   onDeleteFromCart,
-  onItemDelete
+  onItemDelete,
+  cart
 }) => (
   <Product
     title={item.name}
@@ -15,6 +16,7 @@ const ProductItem = ({
     addToCart={onAddToCartClicked}
     deleteFromCart={onDeleteFromCart}
     itemDelete={onItemDelete}
+    items={cart}
   />
 );
 

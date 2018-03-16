@@ -41,3 +41,16 @@
 .cart-table tr td:nth-of-type(2) {
   text-align: right;
 }
+
+@media only screen and (max-width: 768px) {
+  .cart-container {
+    margin-left: 3%;
+    margin-bottom: 10vh;
+  }
+
+  .shopping-container {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    height: auto;
+  }
+}

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Cart from "../components/Cart";
 import { getTotal, getCartItems } from "../reducers";
 
-const CartContainer = ({ items, total }) => (
+const CartContainer = ({ items, total, quantity }) => (
   <Cart items={items} total={total} />
 );
 

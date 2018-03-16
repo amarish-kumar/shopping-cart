@@ -7,7 +7,7 @@ const Items = callback => {
   setTimeout(() => callback(item), TIMEOUT);
 };
 
-const getItems = items => ({
+export const getItems = items => ({
   type: types.GET_ITEMS,
   items
 });

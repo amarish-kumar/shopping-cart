@@ -7,29 +7,32 @@ const Product = ({
   src,
   addToCart,
   deleteFromCart,
-  itemDelete
-}) => (
-  <tr>
-    <td data-th="Items">
-      <Segment compact>
-        <div className="item-description">
-          <img src={src} style={{ height: "35px" }} alt="item" />
-          {title}
-        </div>
-        <div className="item-delete" onClick={itemDelete}>
-          X
-        </div>
-      </Segment>
-    </td>
-    <td data-th="Qty">
-      <div onClick={deleteFromCart}>-</div>
-      <Segment compact className="count">
-        1
-      </Segment>
-      <div onClick={addToCart}>+</div>
-    </td>
-    <td data-th="Price"> &#36;{price}</td>
-  </tr>
-);
+  itemDelete,
+  items
+}) => {
+  return (
+    <tr>
+      <td data-th="Items">
+        <Segment compact>
+          <div className="item-description">
+            <img src={src} style={{ height: "35px" }} alt="item" />
+            {title}
+          </div>
+          <div className="item-delete" onClick={itemDelete}>
+            X
+          </div>
+        </Segment>
+      </td>
+      <td data-th="Qty">
+        <div onClick={deleteFromCart}>-</div>
+        <Segment compact className="count">
+          0
+        </Segment>
+        <div onClick={addToCart}>+</div>
+      </td>
+      <td data-th="Price"> &#36;{price}</td>
+    </tr>
+  );
+};
 
 export default Product;
